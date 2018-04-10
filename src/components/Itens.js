@@ -2,6 +2,9 @@
 import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import React, { Component } from 'react';
 import { Button } from 'react-native';
+import BotaoDetalhesItem from './BotaoDetalhesItem';
+import BotaoComprar from './BotaoComprar';
+
 
 export default class Itens extends Component{
 
@@ -16,19 +19,14 @@ export default class Itens extends Component{
                             <Text>{this.props.item.valor}</Text>
                             <Text>{this.props.item.local_anuncio}</Text>    
                             <Text>{this.props.item.data_publicacao}</Text>
-                            
+                                            
+                            <BotaoDetalhesItem navigation = {this.props.navigation} item = {this.props.item}
+                            ></BotaoDetalhesItem>
+
+                            <BotaoComprar/>
                             
 
-                            <Button
-                            onPress = {() => {this.props.navigation.navigate('DetalhesItem', {
-                                item_titulo: this.props.item.titulo,
-                                item_foto: this.props.item.foto,
-                                item_valor: this.props.item.valor,
-                                item_local_anuncio: this.props.item.local_anuncio,
-                                item_publicacao: this.props.item.data_publicacao})}}
-                            title = "Detalhes do item"
-                            >
-                            </Button>
+
                 </View>
         );
     }
